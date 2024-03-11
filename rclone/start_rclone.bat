@@ -2,6 +2,7 @@ set rcfdr=d:\greenware\rclone
 set mfdr=d:\z_rc
 set uname=user
 set upass=pass
+set prefixFilter=ppp ; Define the prefix filter variable here
 
 
 cd /d %rcfdr%
@@ -21,11 +22,11 @@ set "output="
 for /F "delims=" %%f in ('rclone listremotes --long') do (
     if defined output set "output=!output!!LF!"
 
-    :: if the remote name not start with ppp, add it to list
+    :: if the remote name not start with prefixFilter, add it to list
     set tmpstr=%%f
     :: remove space
     SET "tmpstr_=!tmpstr: =% & rem.%!"
-    if NOT "!tmpstr:~0,3!"=="ppp" set "output=!output!!tmpstr_!"
+    if NOT "!tmpstr:~0,3!"=="!prefixFilter!" set "output=!output!!tmpstr_!"
 )
 
 echo !output! > %mfdr%\log.txt
