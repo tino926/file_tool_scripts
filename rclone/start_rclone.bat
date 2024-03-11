@@ -37,15 +37,15 @@ set "set1=pcloud"
 
 for %%f in (!output!) do (
     set tmpstr=%%f
-	 for /F "tokens=1 delims=:" %%g in ("!tmpstr!") do set "name=%%g"
-	 set remo=!name!:
-	 
-	 set devi=!tmpstr:*:=!
+	for /F "tokens=1 delims=:" %%g in ("!tmpstr!") do set "name=%%g"
+	set remo=!name!:
+
+	set devi=!tmpstr:*:=!
 
     rem echo -------------
     echo "!tmpstr! => !remo! => !devi! => !name!"
     rem echo "onedrive pcloud"| findstr /i "\<!devi!\>" >nul && echo yes || echo no
-    
+
     set "found=0"
     for %%S in (!set1!) do (
         if "!found!"=="0" if "!devi!"=="%%S" (
