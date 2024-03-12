@@ -1,8 +1,8 @@
-set rcfdr=d:\greenware\rclone
-set mfdr=d:\z_rc
-set uname=user
-set upass=pass
-set prefixFilter=ppp ; Define the prefix filter variable here
+set rcfdr=d:\greenware\rclone ; folder of the rclone execution file
+set mfdr=d:\z_rc              ; root folder to mount network drives
+set uname=user                ; webui username
+set upass=pass                ; webui password
+set prefixFilter=ppp          ; remote name starting with this will not be mounted
 
 
 cd /d %rcfdr%
