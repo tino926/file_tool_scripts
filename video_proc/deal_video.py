@@ -9,9 +9,21 @@ stream into the video file, and executes the command to process the video.
 
 import subprocess
 import os
+import configparser
 
-VIDEO = "D:/a.mkv"
-SUBTITLES_DIR = 'D:/a'
+
+# Check if the ./pri/ subfolder exists
+if os.path.exists('./pri/'):
+    # Read the setting.ini file
+    config = configparser.ConfigParser()
+    config.read('./pri/setting.ini')
+
+    VIDEO = config.get('Settings', 'video_path')
+    SUBTITLES_DIR = config.get('Settings', 'sub_fdr')
+else:
+    # Default paths if the subfolder does not exist
+    VIDEO = "D:/a.mkv"
+    SUBTITLES_DIR = 'D:/a'
 
 
 # Get the directory of the video file
