@@ -1,9 +1,20 @@
 import os
 import subprocess
+import configparser
 import ffmpeg
 
-# Get the current working directory
-video_dir = os.getcwd()
+
+
+# Check if the ./pri directory exists and contains settings.ini
+if os.path.exists('./pri'):
+    # Use configparser to read the settings
+    config = configparser.ConfigParser()
+    config.read('./pri/setting.ini')
+    video_dir = config.get('EXTRACT_FRAMES', 'video_fdr')
+else:
+    # Get the current working directory
+    video_dir = os.getcwd()
+
 
 # List of video file extensions to process
 video_extensions = ['.mp4', '.avi', '.mkv']
@@ -25,6 +36,6 @@ for filename in os.listdir(video_dir):
         # # Execute the ffmpeg command
         # subprocess.run(ffmpeg_cmd, check=True)
 
-        stream = ffmpeg.input(filename)
+        stream = ffmpeg.input(os.path.join(video_dir, filename))
         stream = ffmpeg.output(stream, new_dir+'/%08d.jpg', q=1)
         ffmpeg.run(stream)
