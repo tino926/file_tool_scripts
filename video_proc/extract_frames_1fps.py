@@ -37,5 +37,7 @@ for filename in os.listdir(video_dir):
         # subprocess.run(ffmpeg_cmd, check=True)
 
         stream = ffmpeg.input(os.path.join(video_dir, filename))
-        stream = ffmpeg.output(stream, new_dir+'/%08d.jpg', q=1)
+        stream = ffmpeg.output(stream, new_dir+'/%08d.jpg', q=1, 
+                               fps_mode='passthrough', 
+                               frame_pts=1)
         ffmpeg.run(stream)
