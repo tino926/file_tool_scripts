@@ -1,3 +1,8 @@
+:: This batch script extracts frames from video files in current folder
+:: It processes all .mp4, .avi, and .mkv files in the current directory, 
+:: creating a new folder for each video file named after the video file itself.
+
+
 @echo off
 setlocal enabledelayedexpansion
 
