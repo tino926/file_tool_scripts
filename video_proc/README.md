@@ -1,6 +1,9 @@
+!!! not fully checked yet
+
+
 # Video Processing Scripts
 
-This repository contains three Python scripts and a batch file designed for 
+This folder contains two Python scripts and a batch file designed for 
 processing video files. The scripts are designed to extract frames from video 
 files, embed subtitles into video files, and a batch file to automate the frame 
 extraction process.
@@ -9,30 +12,35 @@ extraction process.
 
 - [Video Processing Scripts](#video-processing-scripts)
   - [Contents](#contents)
-  - [extract\_frames\_1fps.bat](#extract_frames_1fpsbat)
-    - [Usage](#usage)
-  - [extract\_frames\_1fps.py](#extract_frames_1fpspy)
-    - [Usage](#usage-1)
+  - [extract_frames_1fps](#extract_frames_1fps)
+    - [extract\_frames\_1fps.bat](#extract_frames_1fpsbat)
+      - [Usage](#usage)
+    - [extract\_frames\_1fps.py](#extract_frames_1fpspy)
+      - [Usage](#usage-1)
   - [deal\_video.py](#deal_videopy)
     - [Usage](#usage-2)
   - [Configuration](#configuration)
   - [Contributing](#contributing)
 
-## extract_frames_1fps.bat
+## extract_frames_1fps
+
+extract frames from videos, with two versions available: a Windows batch file 
+and a Python script.
+
+### extract_frames_1fps.bat
 
 This batch script extracts frames from video files in the current folder. It 
 processes all `.mp4`, `.avi`, and `.mkv` files in the current directory, 
-creating a new folder for each video file named after the video file itself. The 
-frames are extracted at 1 frame per second (1fps) using FFmpeg.
+creating a new folder for each video file named after the video file itself. 
 
-### Usage
+#### Usage
 
 1. Place the `extract_frames_1fps.bat` file in the directory containing the 
    video files you want to process.
 2. Run the batch file by double-clicking it or executing it from the command 
    line.
 
-## extract_frames_1fps.py
+### extract_frames_1fps.py
 
 This Python script is a more advanced version of the batch script, offering 
 similar functionality but with additional features such as configuration through 
@@ -40,7 +48,7 @@ an `settings.ini` file. It extracts frames from video files located in a
 specified directory, creating a new directory for each video file named after 
 the video file itself.
 
-### Usage
+#### Usage
 
 1. Ensure you have Python installed on your system.
 2. Install the required Python packages by running 
