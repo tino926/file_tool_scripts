@@ -1,6 +1,7 @@
 import os
 import configparser
 import ffmpeg
+import logging
 
 # Check if the ./pri directory exists and contains settings.ini
 if os.path.exists('./pri'):
@@ -37,7 +38,7 @@ def extract_frames(video_dir):
             try:
                 ffmpeg.run(stream)
             except ffmpeg.Error as e:
-                print(e)
+                logging.error(f"Error extracting frames from {filename}: {e}")
 
 def main():
     extract_frames(video_dir=video_dir)
