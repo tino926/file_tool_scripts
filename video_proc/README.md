@@ -1,76 +1,46 @@
-!!! not fully checked yet
-
-
 # Video Processing Scripts
 
-This folder contains two Python scripts and a batch file designed for 
-processing video files. The scripts are designed to extract frames from video 
-files, embed subtitles into video files, and a batch file to automate the frame 
-extraction process.
+This repository contains Python scripts and a batch file designed for processing 
+video files. The scripts are capable of extracting frames from videos, embedding 
+subtitles into video files, and automating the frame extraction process.
 
-## Contents
+## Table of Contents
 
 - [Video Processing Scripts](#video-processing-scripts)
-  - [Contents](#contents)
-  - [extract\_frames\_1fps](#extract_frames_1fps)
-    - [extract\_frames\_1fps.bat](#extract_frames_1fpsbat)
+  - [Table of Contents](#table-of-contents)
+  - [Scripts Overview](#scripts-overview)
+    - [extract\_frames\_1fps](#extract_frames_1fps)
       - [Usage](#usage)
-    - [extract\_frames\_1fps.py](#extract_frames_1fpspy)
+    - [deal\_video.py](#deal_videopy)
       - [Usage](#usage-1)
-  - [deal\_video.py](#deal_videopy)
-    - [Usage](#usage-2)
-  - [frames\_to\_video.py](#frames_to_videopy)
-    - [Features](#features)
-    - [Usage](#usage-3)
+    - [frames\_to\_video.py](#frames_to_videopy)
+      - [Features](#features)
+      - [Usage](#usage-2)
   - [Configuration](#configuration)
   - [Contributing](#contributing)
 
-## extract_frames_1fps
+## Scripts Overview
 
-extract frames from videos, with two versions available: a Windows batch file 
-and a Python script.
+### extract_frames_1fps
 
-### extract_frames_1fps.bat
-
-This batch script extracts frames from video files in the current folder. It 
-processes all `.mp4`, `.avi`, and `.mkv` files in the current directory, 
-creating a new folder for each video file named after the video file itself. 
+This script extracts frames from videos, with two versions available: a Windows 
+batch file and a Python script.
 
 #### Usage
 
-1. Place the `extract_frames_1fps.bat` file in the directory containing the 
-   video files you want to process.
+1. Place the `extract_frames_1fps.bat` or `extract_frames_1fps.py` file in the 
+   directory containing the video files you want to process.
 2. Run the batch file by double-clicking it or executing it from the command 
    line.
 
-### extract_frames_1fps.py
-
-This Python script is a more advanced version of the batch script, offering 
-similar functionality but with additional features such as configuration through 
-an `settings.ini` file. It extracts frames from video files located in a 
-specified directory, creating a new directory for each video file named after 
-the video file itself.
-
-#### Usage
-
-1. Ensure you have Python installed on your system.
-2. Install the required Python packages by running 
-   `pip install ffmpeg-python configparser`.
-3. Place the `extract_frames_1fps.py` file in the directory containing the video 
-   files you want to process.
-4. Run the script by executing `python extract_frames_1fps.py` from the command 
-   line.
-
-## deal_video.py
+### deal_video.py
 
 This Python script automates the embedding of subtitles into video files using 
 FFmpeg. It is designed for batch processing of multiple video files with their 
 corresponding subtitle files, simplifying the process of adding subtitles to 
-video content. The script defines the paths to the video file and the directory 
-containing subtitle files, constructs an FFmpeg command to embed each subtitle 
-stream into the video file, and executes the command to process the video.
+video content.
 
-### Usage
+#### Usage
 
 1. Ensure you have Python installed on your system.
 2. Install the required Python packages by running 
@@ -79,34 +49,38 @@ stream into the video file, and executes the command to process the video.
    and their corresponding subtitle files.
 4. Run the script by executing `python deal_video.py` from the command line.
 
-## frames_to_video.py
+### frames_to_video.py
 
-This Python script is designed to convert a series of JPEG images into a video file. It's particularly useful for creating videos from a sequence of frames, such as those extracted from a video file. The script uses FFmpeg for the conversion process, ensuring high-quality video output.
+This Python script converts a series of JPEG images into a video file. It's 
+particularly useful for creating videos from a sequence of frames, such as those 
+extracted from a video file. The script uses FFmpeg for the conversion process, 
+ensuring high-quality video output.
 
-### Features
+#### Features
 
-- Automatically sorts JPEG files in the specified directory to ensure the correct order of frames.
-- Constructs a temporary text file for the FFmpeg concat demuxer, which is used to concatenate the frames into a video.
-- Allows customization of the output video's frames per second (FPS) and resolution.
+- Automatically sorts JPEG files in the specified directory to ensure the 
+  correct order of frames.
+- Constructs a temporary text file for the FFmpeg concat demuxer, which is used 
+  to concatenate the frames into a video.
+- Allows customization of the output video's frames per second (FPS) and 
+  resolution.
 - Cleans up the temporary text file after the video has been created.
 
-### Usage
+#### Usage
 
 1. Ensure you have Python installed on your system.
 2. Install the required Python packages by running `pip install ffmpeg-python`.
-3. Modify the `IMGDIR` variable in the script to point to the directory containing your JPEG images.
+3. Modify the `IMGDIR` variable in the script to point to the directory 
+   containing your JPEG images.
 4. Optionally, adjust the `FPS` variable to change the video's frames per second.
 5. Run the script by executing `python frames_to_video.py` from the command line.
-
-This script is a valuable tool for video processing tasks, enabling the creation of videos from a series of images with ease.
 
 ## Configuration
 
 Both `extract_frames_1fps.py` and `deal_video.py` scripts support configuration 
-through an `settings.ini` file located in a `./pri` directory. 
-The `settings.ini` file should contain the necessary settings for the scripts to 
-function correctly. See the script documentation for details on the required 
-settings.
+through a `settings.ini` file located in a `./pri` directory. The `settings.ini` 
+file should contain the necessary settings for the scripts to function correctly. 
+See the script documentation for details on the required settings.
 
 ## Contributing
 
