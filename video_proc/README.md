@@ -12,13 +12,16 @@ extraction process.
 
 - [Video Processing Scripts](#video-processing-scripts)
   - [Contents](#contents)
-  - [extract_frames_1fps](#extract_frames_1fps)
+  - [extract\_frames\_1fps](#extract_frames_1fps)
     - [extract\_frames\_1fps.bat](#extract_frames_1fpsbat)
       - [Usage](#usage)
     - [extract\_frames\_1fps.py](#extract_frames_1fpspy)
       - [Usage](#usage-1)
   - [deal\_video.py](#deal_videopy)
     - [Usage](#usage-2)
+  - [frames\_to\_video.py](#frames_to_videopy)
+    - [Features](#features)
+    - [Usage](#usage-3)
   - [Configuration](#configuration)
   - [Contributing](#contributing)
 
@@ -75,6 +78,27 @@ stream into the video file, and executes the command to process the video.
 3. Place the `deal_video.py` file in the directory containing the video files 
    and their corresponding subtitle files.
 4. Run the script by executing `python deal_video.py` from the command line.
+
+## frames_to_video.py
+
+This Python script is designed to convert a series of JPEG images into a video file. It's particularly useful for creating videos from a sequence of frames, such as those extracted from a video file. The script uses FFmpeg for the conversion process, ensuring high-quality video output.
+
+### Features
+
+- Automatically sorts JPEG files in the specified directory to ensure the correct order of frames.
+- Constructs a temporary text file for the FFmpeg concat demuxer, which is used to concatenate the frames into a video.
+- Allows customization of the output video's frames per second (FPS) and resolution.
+- Cleans up the temporary text file after the video has been created.
+
+### Usage
+
+1. Ensure you have Python installed on your system.
+2. Install the required Python packages by running `pip install ffmpeg-python`.
+3. Modify the `IMGDIR` variable in the script to point to the directory containing your JPEG images.
+4. Optionally, adjust the `FPS` variable to change the video's frames per second.
+5. Run the script by executing `python frames_to_video.py` from the command line.
+
+This script is a valuable tool for video processing tasks, enabling the creation of videos from a series of images with ease.
 
 ## Configuration
 
