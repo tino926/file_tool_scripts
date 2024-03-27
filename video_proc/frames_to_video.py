@@ -26,7 +26,7 @@ with open(concat_file, 'w') as f:
 # Step 3: Construct the command
 # Start with the base command and the input files
 command = ['ffmpeg',
-           '-f', 'concat',
+           '-f', 'concat', # the input files should be concatenated 
            '-safe', '0',  # Allow file paths in the concat list file
            '-i', concat_file,
            '-r', str(FPS),
