@@ -1,6 +1,7 @@
 import os
 import glob
 import subprocess
+import configparser
 
 # Define the directory containing the JPEG images
 IMGDIR = 'D:\\Download\\abc'
@@ -10,6 +11,18 @@ OUTVID = 'D:\\Download\\abc.mp4'
 
 # Define the frames per second (FPS)
 FPS = 15
+
+
+# Check if the ./pri directory exists and contains settings.ini
+if os.path.exists('./pri'):
+    # Use configparser to read the settings
+    config = configparser.ConfigParser()
+    config.read('./pri/setting.ini')
+    if config.has_option('FRAMES_TO_VIDEO', 'img_dir'):
+        IMGDIR = config.get('FRAMES_TO_VIDEO', 'img_dir')
+        OUTVID = config.get('FRAMES_TO_VIDEO', 'out_vid')
+    if config.has_option('FRAMES_TO_VIDEO', 'fps'):
+        FPS = config.get('FRAMES_TO_VIDEO', 'fps')
 
 
 def frames_to_video(IMGDIR, OUTVID, FPS):
